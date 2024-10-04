@@ -1,0 +1,463 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --cor-primaria: #485155; 
+    --cor-secundaria: #fecc00;
+    --cor-secundaria-hover: #fcd436;
+    --texto: #e3e3e3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: var(--cor-primaria);
+}
+
+.cabecalho {
+    padding: 2.5rem 3.75rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--cor-primaria); 
+}
+
+.cabecalho ul {
+    list-style: none;
+}
+
+.cabecalho a {
+    color: var(--texto);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.cabecalho a:hover {
+    color: var(--cor-secundaria);
+}
+
+.cabecalho .logo img {
+    height: 50px;
+}
+
+.cabecalho ul {
+    display: flex;
+}
+
+.cabecalho ul li {
+    margin-left: 20px;
+}
+
+.cabecalho ul li a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cabecalho ul li a:hover {
+    color: var(--cor-secundaria);
+}
+
+.header, .typing-area {
+    color: var(--texto);
+}
+
+.header {
+    margin-top: 7vh;
+    padding: 1rem;
+}
+
+body.hide-header .header {
+    display: none;
+    margin-top: 7vh;
+}
+
+.header, .chat-list .message, .typing-form {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header :where(.title, .subtitle) {
+    font-weight: 500;
+    line-height: 3.6rem;
+}
+
+/* body.hide-chat .chat {
+    margin-top: 0;
+    display: none;
+} */
+
+.header .title {
+    font-size: 2.7rem;
+    color: var(--cor-secundaria);
+}
+
+.header .subtitle {
+    font-size: 2.4rem;
+    color: #c59e00;
+}
+
+.suggestion-list-Dsin {
+    margin-top: 9.5vh;
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scrollbar-width: none; /* tira a barra */
+}
+
+.suggestion-list-Dsin .suggestion {
+    padding: 1rem;
+    cursor: pointer;
+    width: 200px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    /* ou flex-end */
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 0.75rem;
+    background: var(--cor-secundaria);
+}
+
+.suggestion-list-Dsin .suggestion h4 {
+    color: black;
+}
+
+.suggestion-list-Dsin .suggestion:hover {
+    background: var(--cor-secundaria);
+} 
+
+.suggestion-list-Dsin .suggestion .text {
+    font-weight: 400;
+} 
+
+.suggestion-list-Dsin .suggestion .icon {
+    height: 42px;
+    width: 42px;
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--cor-primaria);
+    /* color: black; */
+} 
+
+.suggestion-list-transit {
+    margin-top: 9.5vh;
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scrollbar-width: none; /* tira a barra */
+}
+
+.suggestion-list-transit .suggestion {
+    padding: 1rem;
+    cursor: pointer;
+    width: 200px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    /* ou flex-end */
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 0.75rem;
+    background: rgb(0, 102, 255);
+}
+
+.suggestion-list-transit .suggestion h4 {
+    color: black;
+}
+
+.suggestion-list-transit .suggestion:hover {
+    background: rgb(0, 102, 255);
+} 
+
+.suggestion-list-transit .suggestion .text {
+    font-weight: 400;
+} 
+
+.suggestion-list-transit .suggestion .icon {
+    height: 42px;
+    width: 42px;
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--cor-primaria);
+    /* color: black; */
+} 
+
+.chat-list {
+    padding: 2rem 1rem 12rem;
+    max-height: 100vh;
+    overflow-y: auto;
+    scrollbar-color: #999 transparent;
+
+    scrollbar-width: none;
+}
+
+.chat-list::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-list .message.incoming, .message-content {
+    margin-top: 1.5rem;
+}
+
+.chat-list .message .message-content {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
+}
+
+.chat-list .message .avatar {
+    width: 40px;
+    height: 40px;
+    /* object-fit: cover;
+    border-radius: 50%;
+    align-self: flex-start; */
+}
+
+/* .chat-list .message.loading .avatar {
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    100%  {
+        transform: rotate(360deg);
+    }
+} */
+
+.chat-list .message .text {
+    color: var(--texto);
+}
+
+/* .chat-list .message .icon {
+    color: var(--texto);
+} */
+
+.chat-list .message .text.error {
+    color: #e55865;
+}
+
+.chat-list .message.loading .text {
+    display: none;
+}
+
+.chat-list .message .icon {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.25rem;
+    margin-left: 3.5rem;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    color: white;
+    visibility: hidden;
+}
+
+/* .chat-list .message:hover .icon {
+    visibility: visible;
+} */
+
+.chat-list .message:not(.loading):hover .icon:not(.hide) {
+    visibility: visible;
+}
+
+.chat-list .message .icon:hover {
+    color: black;
+    background-color: var(--cor-secundaria);
+}
+
+.loader {
+    width: 60px;
+    aspect-ratio: 4;
+    background: radial-gradient(circle closest-side,#fecc00 90%,#0000) 0/calc(100%/3) 100% space;
+    clip-path: inset(0 100% 0 0);
+    animation: l1 1s steps(4) infinite;
+}
+@keyframes l1 {
+    to {
+        clip-path: inset(0 -34% 0 0)
+    }
+}
+
+/* .chat-list .loading-indicator {
+    display: none;
+    width: 100%;
+    gap: 0.8rem;
+    flex-direction: column;
+}
+
+.chat-list .message.loading .loading-indicator {
+    display: flex;
+}
+
+.chat-list .loading-indicator .loading-bar {
+    height: 11px;
+    width: 100%;
+    border-radius: 0.14rem;
+    background: linear-gradient(to right, var(--cor-secundaria),var(--cor-primaria),var(--cor-secundaria));
+    animation: animate 3s linear infinite;
+} */
+
+/* .chat-list .loading-indicator .loading-bar:last-child{
+    width: 70%;
+} */
+
+/* @keyframes animate {
+    0% {
+        background-position: -800px 0;
+    }
+
+    100% {
+        background-position: 800px 0;
+    }
+} */
+
+.typing-area {
+    position: fixed;
+    width: 100%;
+    bottom: 0; 
+    padding: 1rem;
+    background: var(--cor-primaria);
+} 
+
+.typing-area :where(.typing-form, .action-buttons) {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.typing-area .input-wrapper {
+    height: 56px;
+    width: 100%; 
+    display: flex; 
+    position: relative;
+}
+  
+.typing-area .typing-input {
+    width: 100%;
+    height: 100%;
+    border: none;  
+    outline: none;
+    font-size: 1rem;
+    color: black;
+    border-radius: 6.2rem;
+    padding: 1.1rem 4rem 1.1rem 1.5rem;
+    background: white;
+}   
+
+.typing-area .typing-input:focus {
+    background: #e0e0e0;
+}
+
+.typing-area .typing-input::placeholder {
+    color: black;
+} 
+
+.typing-area .icon {
+    height: 56px;
+    width: 56px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: white;
+}
+
+.typing-area .icon:hover {
+    background: var(--cor-secundaria-hover)!important;
+}
+
+.typing-area .input-wrapper .icon {
+    position: absolute;
+    right: 0;
+    outline: none;
+    border: none;
+    background: none;
+    color: black;
+    transform: scale(0);
+    transition: transform 0.2s ease; 
+}
+
+.typing-area .typing-input:valid ~ .icon {
+    transform: scale(1);
+}
+
+.typing-area .disclaimer-text {
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--cor-secundaria);
+} 
+
+/* Media-query */
+@media (max-width: 600px) {
+
+    .cabecalho {
+        padding: 1rem 2rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cabecalho ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cabecalho ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .cabecalho .logo img {
+        height: 40px;
+    }
+
+    .suggestion-list {
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .suggestion-list .suggestion {
+        width: 180px;
+    }
+
+    .header .title {
+        font-size: 2rem;
+    }
+
+    .header .subtitle {
+        font-size: 1.8rem;
+    }
+
+    .typing-area {
+        padding: 0.75rem;
+    }
+
+    .typing-area .typing-input {
+        font-size: 0.9rem;
+        padding: 0.9rem 3rem 0.9rem 1rem;
+    }
+
+    .typing-area .icon {
+        height: 48px;
+        width: 48px;
+    }
+}
