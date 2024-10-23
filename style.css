@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 :root {
-    --cor-primaria: #485155; 
+    --cor-primaria: #485155;
     --cor-secundaria: #fecc00;
     --cor-secundaria-hover: #fcd436;
     --texto: #e3e3e3;
@@ -20,48 +20,84 @@ body {
     background: var(--cor-primaria);
 }
 
-.cabecalho {
-    padding: 2.5rem 3.75rem;
-    width: 100%;
+.nav-bar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    background: var(--cor-primaria); 
+    padding: 1.5rem 2rem;
 }
 
-.cabecalho ul {
-    list-style: none;
-}
-
-.cabecalho a {
-    color: var(--texto);
-    font-size: 0.9rem;
-    text-decoration: none;
-}
-
-.cabecalho a:hover {
-    color: var(--cor-secundaria);
-}
-
-.cabecalho .logo img {
+.logo img {
     height: 50px;
 }
 
-.cabecalho ul {
+.nav-list {
     display: flex;
+    align-items: center;
 }
 
-.cabecalho ul li {
-    margin-left: 20px;
+.nav-list ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
 }
 
-.cabecalho ul li a {
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 1.15rem;
+    color: var(--texto);
+    font-weight: 400;
 }
 
-.cabecalho ul li a:hover {
+.nav-item a:hover {
     color: var(--cor-secundaria);
+}
+
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media screen and (max-width: 730px) {
+    .nav-bar {
+        padding: 1.5rem 4rem;
+    }
+
+    .nav-item {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .mobile-menu-icon button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    .mobile-menu .nav-item {
+        display: block;
+        padding-top: 1.2rem;
+    }
+
+    .open {
+        display: block;
+    }
 }
 
 .header, .typing-area {
@@ -132,11 +168,11 @@ body.hide-header .header {
 
 .suggestion-list-Dsin .suggestion:hover {
     background: var(--cor-secundaria);
-} 
+}
 
 .suggestion-list-Dsin .suggestion .text {
     font-weight: 400;
-} 
+}
 
 .suggestion-list-Dsin .suggestion .icon {
     height: 42px;
@@ -149,7 +185,7 @@ body.hide-header .header {
     border-radius: 50%;
     background: var(--cor-primaria);
     /* color: black; */
-} 
+}
 
 .suggestion-list-transit {
     margin-top: 9.5vh;
@@ -180,11 +216,11 @@ body.hide-header .header {
 
 .suggestion-list-transit .suggestion:hover {
     background: rgb(0, 102, 255);
-} 
+}
 
 .suggestion-list-transit .suggestion .text {
     font-weight: 400;
-} 
+}
 
 .suggestion-list-transit .suggestion .icon {
     height: 42px;
@@ -197,14 +233,13 @@ body.hide-header .header {
     border-radius: 50%;
     background: var(--cor-primaria);
     /* color: black; */
-} 
+}
 
 .chat-list {
-    padding: 2rem 1rem 12rem;
+    padding: 2rem 1rem 8rem;
     max-height: 100vh;
     overflow-y: auto;
     scrollbar-color: #999 transparent;
-
     scrollbar-width: none;
 }
 
@@ -333,10 +368,11 @@ body.hide-header .header {
 .typing-area {
     position: fixed;
     width: 100%;
-    bottom: 0; 
+    bottom: 0;
     padding: 1rem;
     background: var(--cor-primaria);
-} 
+    text-align: center;
+}
 
 .typing-area :where(.typing-form, .action-buttons) {
     display: flex;
@@ -345,11 +381,11 @@ body.hide-header .header {
 
 .typing-area .input-wrapper {
     height: 56px;
-    width: 100%; 
-    display: flex; 
+    width: 100%;
+    display: flex;
     position: relative;
 }
-  
+ 
 .typing-area .typing-input {
     width: 100%;
     height: 100%;
@@ -360,7 +396,7 @@ body.hide-header .header {
     border-radius: 6.2rem;
     padding: 1.1rem 4rem 1.1rem 1.5rem;
     background: white;
-}   
+}  
 
 .typing-area .typing-input:focus {
     background: #e0e0e0;
@@ -368,7 +404,7 @@ body.hide-header .header {
 
 .typing-area .typing-input::placeholder {
     color: black;
-} 
+}
 
 .typing-area .icon {
     height: 56px;
@@ -393,7 +429,7 @@ body.hide-header .header {
     background: none;
     color: black;
     transform: scale(0);
-    transition: transform 0.2s ease; 
+    transition: transform 0.2s ease;
 }
 
 .typing-area .typing-input:valid ~ .icon {
@@ -405,10 +441,29 @@ body.hide-header .header {
     margin-top: 1rem;
     text-align: center;
     color: var(--cor-secundaria);
-} 
+}
+
+.typing-area .dashboard-link {
+    display: inline-block;
+    font-size: 1.0rem;
+    color: var(--texto);
+    text-decoration: none;
+   
+}
+
+.typing-area .dashboard-link:hover {
+    color: var(--cor-secundaria);
+}
+
+/* .cabecalho-list a {
+    font-size: 18px;
+    color: #fff;
+    padding-block: 16px;
+} */
 
 /* Media-query */
-@media (max-width: 600px) {
+@media (max-width: 730px) {
+
 
     .cabecalho {
         padding: 1rem 2rem;
@@ -416,45 +471,55 @@ body.hide-header .header {
         align-items: center;
     }
 
+
     .cabecalho ul {
         flex-direction: column;
         align-items: center;
     }
+
 
     .cabecalho ul li {
         margin-left: 0;
         margin-top: 10px;
     }
 
+
     .cabecalho .logo img {
         height: 40px;
     }
+
 
     .suggestion-list {
         gap: 0.75rem;
         padding: 1rem;
     }
 
+
     .suggestion-list .suggestion {
         width: 180px;
     }
+
 
     .header .title {
         font-size: 2rem;
     }
 
+
     .header .subtitle {
         font-size: 1.8rem;
     }
+
 
     .typing-area {
         padding: 0.75rem;
     }
 
+
     .typing-area .typing-input {
         font-size: 0.9rem;
         padding: 0.9rem 3rem 0.9rem 1rem;
     }
+
 
     .typing-area .icon {
         height: 48px;

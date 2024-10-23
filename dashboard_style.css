@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+:root {
+    --cor-primaria: #485155;
+    --cor-secundaria: #fecc00;
+    --cor-secundaria-hover: #fcd436;
+    --texto: #e3e3e3;
+}
+
+
+body {
+    background-color: var(--cor-primaria);
+}

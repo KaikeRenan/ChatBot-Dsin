@@ -3,21 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSIN - duvidas</title>
+    <title>DSIN | duvidas</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="cabecalho">
-        <a href="https://www.dsin.com.br" class="logo"><img src="https://www.dsin.com.br/wp-content/uploads/2022/01/logo.svg" alt="DSIN"></a>
-        <ul>
-            <li><a href="https://www.dsin.com.br/">Home</a></li>
-            <li><a href="https://www.dsin.com.br/o-que-resolvemos/">O que Resolvemos</a></li>
-            <li><a href="https://www.dsin.com.br/solucoes/">Soluções</a></li>
-            <li><a href="http://carreira.dsin.com.br/">Carreira</a></li>
-            <li><a href="https://www.dsin.com.br/area-do-cliente/">Área do Cliente</a></li>
-            <li><a href="https://www.dsin.com.br/contato/">Contato</a></li>
-        </ul>
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <a href="https://www.dsin.com.br" class="logo"><img src="https://www.dsin.com.br/wp-content/uploads/2022/01/logo.svg" alt="DSIN"></a>
+            </div>
+
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="https://www.dsin.com.br/" target="_self" rel="next" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="https://www.dsin.com.br/solucoes/" target="_self" rel="next" class="nav-link">Soluções</a></li>
+                    <li class="nav-item"><a href="http://carreira.dsin.com.br/" target="_self" rel="next" class="nav-link">Carreira</a></li>
+                    <li class="nav-item"><a href="dashboard.html" target="_self" rel="next" class="nav-link">Acessar Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="mobile-menu-icon">
+                <button onclick="menuShow()"><img class="icon" src="imagens/menu_white_36dp.svg"></button>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul>
+                <li class="nav-item"><a href="https://www.dsin.com.br/" target="_self" rel="next" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="https://www.dsin.com.br/solucoes/" target="_self" rel="next" class="nav-link">Soluções</a></li>
+                <li class="nav-item"><a href="http://carreira.dsin.com.br/" target="_self" rel="next" class="nav-link">Carreira</a></li>
+                <li class="nav-item"><a href="dashboard.html" target="_self" rel="next" class="nav-link">Acessar Dashboard</a></li>
+            </ul>
+        </div>
     </header>
     <!-- ChatBot -->
     <main class="header">
@@ -27,41 +44,46 @@
 
             <!-- lista de sugestões -->
             <ul class="suggestion-list-Dsin">
-                 <li class="suggestion"><h4 class="text">Quem são vocês?</h4><span class="icon material-symbols-outlined">Groups</span></li> 
-                <li class="suggestion"><h4 class="text">O que vocês resolvem?</h4><span class="icon material-symbols-outlined">Directions_Car</span></li>
-                <li class="suggestion"><h4 class="text">Como entrar em contato com vocês?</h4><span class="icon material-symbols-outlined">Support_Agent</span></li>
+                 <li class="suggestion"><h4 class="text">Quem somos nós?</h4><span class="icon material-symbols-outlined">Groups</span></li>
+                <li class="suggestion"><h4 class="text">O que nós resolvemos?</h4><span class="icon material-symbols-outlined">Directions_Car</span></li>
+                <li class="suggestion"><h4 class="text">Como entrar em contato?</h4><span class="icon material-symbols-outlined">Support_Agent</span></li>
                 <li class="suggestion"><h4 class="text">Sobre Dsin</h4><span class="icon material-symbols-outlined">Groups</span></li>
                 <li class="suggestion"><h4 class="text">Sobre Dsin</h4><span class="icon material-symbols-outlined">Directions_Car</span></li>
                 <li class="suggestion"><h4 class="text">Sobre Dsin</h4><span class="icon material-symbols-outlined">Support_Agent</span></li>
             </ul>
 
+
             <ul class="suggestion-list-transit">
-                <li class="suggestion"><h4 class="text">Como funciona as multas de velocidade?</h4><span class="icon material-symbols-outlined">Directions_Car</span></li> 
+                <li class="suggestion"><h4 class="text">Como funciona as multas de velocidade?</h4><span class="icon material-symbols-outlined">Directions_Car</span></li>
                <li class="suggestion"><h4 class="text">Qual o pior hórario do trânsito?</h4><span class="icon material-symbols-outlined">Directions_Car</span></li>
                <li class="suggestion"><h4 class="text">Sobre Transito</h4><span class="icon material-symbols-outlined">Directions_Car</span></li>
                <li class="suggestion"><h4 class="text">Sobre Transito</h4><span class="icon material-symbols-outlined">Directions_Car</span></li>
                <li class="suggestion"><h4 class="text">Sobre Transito</h4><span class="icon material-symbols-outlined">Directions_Car</span></li>
                <li class="suggestion"><h4 class="text">Sobre Transito</h4><span class="icon material-symbols-outlined">Directions_Car</span></li>
            </ul>
-    </main> 
+    </main>
+
 
     <!-- chat list / container -->
     <div class="chat-list">
-        </div>
+    </div>
+
 
     <!-- área de digitação -->
     <div class="typing-area">
         <form action="#" class="typing-form">
-            <div class="input-wrapper"> 
+            <div class="input-wrapper">
                 <input type="text" placeholder="Pergunte aqui..." class="typing-input" required>
                 <button class="icon material-symbols-outlined">send</button>
             </div>
         </form>
+       
         <p class="disclaimer-text">ChatBot pode cometer erros. Considere verificar informações importantes novamente.</p>
+             
     </div>
 
-    <script src="main.js"></script>
+    <script defer src="main.js"></script>
 
-    <script src="main.py"></script>
+    <script defer src="main.py"></script>
 </body>
 </html>
