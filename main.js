@@ -2,12 +2,25 @@ const typingForm = document.querySelector(".typing-form");
 const chatList = document.querySelector(".chat-list");
 const suggestionsDsin = document.querySelectorAll(".suggestion-list-Dsin .suggestion");
 const suggestionsTransit = document.querySelectorAll(".suggestion-list-transit .suggestion");
+const deleteChatButton = document.querySelector("#delete-chat-button")
 
 let userMessage = null;
 let isResponseGenerating = false;
 
 const API_KEY = "AIzaSyAFxo1WSAg3Sp2USBXejXEOsWFwRYf2ReY";
 const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
+
+const loadLocalstorageData = () => {
+  const savedChats = localStorage.getItem("savedChats");
+
+  //restaura chat salvo
+  chatList.innerHTML = savedChats || "";
+
+  document.body.classList.toggle("hide-header", savedChats);
+  chatList.scrollTo(0, chatList.scrollHeight);
+}
+
+loadLocalstorageData();
 
 //cria elemento da mensagem
 const createMessageElement = (content, ...classes) => {
@@ -30,7 +43,7 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
         clearInterval(typingInterval);
         isResponseGenerating = false;
         incomingMessageDiv.querySelector(".icon").classList.remove("hide");
-        localStorage.setItem("savedChats", chatList.innerHTML);
+        localStorage.setItem("savedChats", chatList.innerHTML); //save o chat no armazenamento local
         isResponseGenerating = false;
         
       }
@@ -142,6 +155,14 @@ suggestionsTransit.forEach(suggestionsTransit => {
         handleOutgoingChat();
     });
 });
+
+//Exclui todos os chats do armazenamento local quando o botão for clicado
+deleteChatButton.addEventListener("click", () => {
+  if(confirm("Você deseja apagar todas as mensagens?")) {
+    localStorage.removeItem("savedChats");
+    loadLocalstorageData();
+  }
+})
 
 //quando a mensagem é enviada é chamada a função handleOutGoingChat
 typingForm.addEventListener("submit", (e) =>{

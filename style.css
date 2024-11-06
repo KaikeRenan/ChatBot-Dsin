@@ -64,7 +64,7 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 768px) {
     .nav-bar {
         padding: 1.5rem 4rem;
     }
@@ -432,6 +432,14 @@ body.hide-header .header {
     transition: transform 0.2s ease;
 }
 
+.typing-area .action-button #delete-chat-button {
+    color: black;
+}
+
+.typing-area .action-button .icon{
+    border: none;
+}
+
 .typing-area .typing-input:valid ~ .icon {
     transform: scale(1);
 }
@@ -462,67 +470,60 @@ body.hide-header .header {
 } */
 
 /* Media-query */
-@media (max-width: 730px) {
-
-
+@media (max-width: 768px) {
     .cabecalho {
         padding: 1rem 2rem;
         flex-direction: column;
         align-items: center;
     }
 
-
     .cabecalho ul {
         flex-direction: column;
         align-items: center;
     }
-
 
     .cabecalho ul li {
         margin-left: 0;
         margin-top: 10px;
     }
 
-
     .cabecalho .logo img {
         height: 40px;
     }
 
-
-    .suggestion-list {
-        gap: 0.75rem;
-        padding: 1rem;
-    }
-
-
-    .suggestion-list .suggestion {
-        width: 180px;
-    }
-
-
-    .header .title {
+    .header :is(.title, .subtitle) {
         font-size: 2rem;
+        line-height: 2.6rem;
     }
-
-
+    
     .header .subtitle {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
-
-    .typing-area {
-        padding: 0.75rem;
+    .chat-list .message .avatar {
+        width: 37px;
+        height: 37px;
+    }
+    
+    .typing-area :where(.typing-form, .action-button) {
+        gap: 0.4rem;
+    }
+    
+    .typing-form .input-wrapper {
+        height: 50px;
     }
 
-
-    .typing-area .typing-input {
-        font-size: 0.9rem;
-        padding: 0.9rem 3rem 0.9rem 1rem;
+    .typing-form .typing-input {
+        padding: 1.1rem 3.5rem 1.1rem 1.2rem;
     }
-
 
     .typing-area .icon {
-        height: 48px;
-        width: 48px;
+        height: 50px;
+        width: 50px;
+    }
+
+    .typing-area .disclaimer-text {
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
     }
 }
