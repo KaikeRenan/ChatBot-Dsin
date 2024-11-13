@@ -1,14 +1,196 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DASHBOARD</title>
-    <link rel="stylesheet" href="dashboard_style.css">
+    <title>Dashboard Avançado | DSIN</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            transition: all 0.3s;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            flex-direction: column;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .stat-box {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .stat-box:hover {
+            transform: scale(1.05);
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        canvas {
+            width: 100% !important;
+            max-height: 300px;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #f0f2f5;
+        }
+        .dark-mode .stat-box, .dark-mode .card {
+            background-color: #444;
+        }
+        .dark-mode .theme-toggle {
+            background-color: #ff5722;
+        }
+    </style>
 </head>
 <body>
-    
-    <script defer src="dashboard.py"></script>
-   
+    <div class="container">
+        <h1>Dashboard Avançado e Interativo - DSIN</h1>
+        <button class="theme-toggle" onclick="toggleTheme()">Modo Escuro</button>
+
+        <!-- Painel de Estatísticas Rápidas -->
+        <div class="stats">
+            <div class="stat-box">
+                <h3>Total de Mensagens</h3>
+                <p id="totalMessages">150</p>
+            </div>
+            <div class="stat-box">
+                <h3>Usuários Ativos</h3>
+                <p id="activeUsers">25</p>
+            </div>
+            <div class="stat-box">
+                <h3>Tópico Mais Popular</h3>
+                <p id="popularTopic">Contato</p>
+            </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="card">
+            <h2>Distribuição de Tópicos</h2>
+            <canvas id="topicsDonutChart"></canvas>
+        </div>
+        <div class="card">
+            <h2>Número de Mensagens ao Longo do Tempo</h2>
+            <canvas id="messagesLineChart"></canvas>
+        </div>
+        <div class="card">
+            <h2>Horários de Interação</h2>
+            <canvas id="interactionTimeChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Alternar tema claro/escuro
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Escuro';
+        }
+
+        // Configurar gráficos
+        document.addEventListener('DOMContentLoaded', function () {
+            const topicsCtx = document.getElementById('topicsDonutChart').getContext('2d');
+            new Chart(topicsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Sobre DSIN', 'Trânsito', 'Contato'],
+                    datasets: [{
+                        label: 'Distribuição de Tópicos',
+                        data: [45, 30, 25],
+                        backgroundColor: ['#FF5722', '#4CAF50', '#2196F3']
+                    }]
+                },
+                options: { animation: { duration: 1000 } }
+            });
+
+            const messagesCtx = document.getElementById('messagesLineChart').getContext('2d');
+            new Chart(messagesCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                    datasets: [{
+                        label: 'Mensagens',
+                        data: [65, 59, 80, 81, 56, 55],
+                        borderColor: '#4CAF50',
+                        fill: false,
+                        tension: 0.1
+                    }]
+                },
+                options: { animation: { duration: 1000 } }
+            });
+
+            const timeCtx = document.getElementById('interactionTimeChart').getContext('2d');
+            new Chart(timeCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00'],
+                    datasets: [{
+                        label: 'Interações',
+                        data: [5, 12, 8, 20, 10, 15],
+                        backgroundColor: '#FF5722'
+                    }]
+                },
+                options: { animation: { duration: 1000 } }
+            });
+        });
+
+        // Dados de estatísticas atualizáveis
+        function refreshData() {
+            document.getElementById('totalMessages').textContent = Math.floor(Math.random() * 200);
+            document.getElementById('activeUsers').textContent = Math.floor(Math.random() * 50);
+            const topics = ['Sobre DSIN', 'Trânsito', 'Contato'];
+            document.getElementById('popularTopic').textContent = topics[Math.floor(Math.random() * topics.length)];
+        }
+
+        setInterval(refreshData, 10000);  // Atualiza as estatísticas a cada 10 segundos
+    </script>
 </body>
 </html>
+
+Leonardo Alonso de Toledo
