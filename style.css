@@ -5,7 +5,9 @@
 :root {
     --cor-primaria: #485155;
     --cor-secundaria: #fecc00;
-    --cor-secundaria-hover: #fcd436;
+    --cor-secundaria-hover: #ffdc4c;
+    --cor-terciaria: #0032fe;
+    --cor-terciaria-hover: #4c6fff;
     --texto: #e3e3e3;
 }
 
@@ -151,7 +153,7 @@ body.hide-header .header {
 .suggestion-list-Dsin .suggestion {
     padding: 1rem;
     cursor: pointer;
-    width: 200px;
+    width: 230px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -167,7 +169,7 @@ body.hide-header .header {
 }
 
 .suggestion-list-Dsin .suggestion:hover {
-    background: var(--cor-secundaria);
+    background: var(--cor-secundaria-hover);
 }
 
 .suggestion-list-Dsin .suggestion .text {
@@ -199,7 +201,7 @@ body.hide-header .header {
 .suggestion-list-transit .suggestion {
     padding: 1rem;
     cursor: pointer;
-    width: 200px;
+    width: 230px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -207,7 +209,8 @@ body.hide-header .header {
     align-items: flex-start;
     justify-content: space-between;
     border-radius: 0.75rem;
-    background: rgb(0, 102, 255);
+    /* background: rgb(0, 102, 255); */
+    background: var(--cor-terciaria);
 }
 
 .suggestion-list-transit .suggestion h4 {
@@ -215,7 +218,7 @@ body.hide-header .header {
 }
 
 .suggestion-list-transit .suggestion:hover {
-    background: rgb(0, 102, 255);
+    background: var(--cor-terciaria-hover);
 }
 
 .suggestion-list-transit .suggestion .text {
