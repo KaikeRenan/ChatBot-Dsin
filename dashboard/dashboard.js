@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             datasets: [{
                 label: 'Distribuição de Tópicos',
                 data: [60,40],
-                backgroundColor: ['#fecc00', '#0066ff']
+                backgroundColor: ['#fecc00', '#476bff']
             }]
         },
         options: { animation: { duration: 1000 } }
@@ -44,11 +44,3 @@ document.addEventListener('DOMContentLoaded', function () {
         options: { animation: { duration: 1000 } }
     });
 });
-
-// Dados de estatísticas atualizáveis
-function refreshData() {
-    document.getElementById('totalMessages').textContent = Math.floor(Math.random() * 200);
-    document.getElementById('activeUsers').textContent = Math.floor(Math.random() * 50);
-    const topics = ['Sobre DSIN', 'Trânsito', 'Contato'];
-    document.getElementById('popularTopic').textContent = topics[Math.floor(Math.random() * topics.length)];
-}

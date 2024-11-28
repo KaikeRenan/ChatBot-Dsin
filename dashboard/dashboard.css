@@ -5,7 +5,9 @@
 :root {
     --cor-primaria: #485155;
     --cor-secundaria: #fecc00;
-    --cor-secundaria-hover: #fcd436;
+    --cor-secundaria-hover: #ffdc4c;
+    --cor-terciaria: #476bff;
+    --cor-terciaria-hover: #7590ff;
     --texto: #e3e3e3;
 }
 
@@ -44,8 +46,6 @@ h1 {
     top: 20px;
     right: 20px;
     padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
